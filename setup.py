@@ -12,6 +12,7 @@ GPIO.setup(STEPX, GPIO.OUT)
 GPIO.setup(DIRX, GPIO.OUT)
 GPIO.setup(ENX, GPIO.OUT)
 GPIO.setup(ENDX, GPIO.IN)
+STOPX = GPIO.input(ENDX) # get stopx value
 
 STEPY = 27 # step pin
 DIRY = 17 # direction pin
@@ -21,11 +22,12 @@ GPIO.setup(STEPY, GPIO.OUT)
 GPIO.setup(DIRY, GPIO.OUT)
 GPIO.setup(ENY, GPIO.OUT)
 GPIO.setup(ENDY, GPIO.IN)
+STOPY = GPIO.input(ENDY) # get stopy value
 
 usDelay = 950 # number of microseconds
 uS = 0.000001 # one microsecond
 
-feldgrösse = 180
+feldgrösse = 18
 rand = 30
 
 print("[press ctrl+c to end the script]")
