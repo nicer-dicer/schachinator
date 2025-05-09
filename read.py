@@ -10,3 +10,4 @@ def read_loop(task_queue):
         print(target_field)
         target_field[0] += 1
         target_field[1] += 1
+    task_queue.put(None)  # Sentinel value to signal "no more tasks"

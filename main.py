@@ -1,16 +1,20 @@
-import threading
-import queue
+import multiprocessing as mp
 import worker
 import read
 
 def main():
-    task_queue = queue.Queue()
+    task_queue = mp.Queue()
 
-    worker_thread = threading.Thread(target=worker.worker_task, args=(task_queue,))
-    read_thread = threading.Thread(target=read.read_loop, args=(task_queue,))
+    worker_process = mp.Process(target=worker.worker_task, args=(task_queue,))
 
-    worker_thread.start()
-    read_thread.start()
+    read_process = mp.Process(target=read.read_loop, args=(task_queue,))
+
+
+
+    worker_process.start()
+    read_process.start()
+
+        
 
     try:
         while True:
@@ -18,10 +22,15 @@ def main():
     except KeyboardInterrupt:
         print("Main: KeyboardInterrupt received. Stopping threads...")
 
-        task_queue.put("STOP")
-        worker_thread.join(timeout=5)
+        # Wait for read_process to finish (e.g., after 10 tasks)
+        read_process.join()
+        
+        # Send termination signal to worker
+        task_queue.put(None)
+        worker_process.join()
+        
 
-        print("Main: Worker thread stopped. Exiting.")
+        print("Main: Worker process stopped. Exiting.")
 
 if __name__ == "__main__":
     main()

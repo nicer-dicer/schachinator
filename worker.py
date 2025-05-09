@@ -17,6 +17,7 @@ def move(coordinates):#moves from current position to chosen postition
     
 def worker_task(task_queue):
     #setup des workers
+    global current_coordinates
     setup.home()
     current_coordinates = [0,0]
     # anfang vom Loop
@@ -26,10 +27,8 @@ def worker_task(task_queue):
 def worker_loop(task_queue):
     while True:
         coordinates = task_queue.get()
-        if coordinates == "STOP":
+        if coordinates == None:
             print("Worker: Stopping worker thread.")
-            task_queue.task_done()
             break
         
         move(coordinates)
-        task_queue.task_done()
