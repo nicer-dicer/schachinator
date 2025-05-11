@@ -8,6 +8,7 @@ current_coordinates = [0,0]
 
 
 def move(coordinates):#moves from current position to chosen postition
+    global current_coordinates
     #enable drivers
     GPIO.output(ENX, GPIO.LOW)
     GPIO.output(ENY, GPIO.LOW)
@@ -63,7 +64,8 @@ def move(coordinates):#moves from current position to chosen postition
                 
     # Disable drivers after moving
     GPIO.output(ENX, GPIO.HIGH)
-    GPIO.output(ENY, GPIO.HIGH)      
+    GPIO.output(ENY, GPIO.HIGH)
+    current_coordinates = coordinates      
     
     
 def worker_task(task_queue):

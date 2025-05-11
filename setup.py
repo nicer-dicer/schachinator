@@ -27,7 +27,7 @@ STOPY = GPIO.input(ENDY) # get stopy value
 usDelay = 950 # number of microseconds
 uS = 0.000001 # one microsecond
 
-feldgrösse = 18
+feldgrösse = 180
 rand = 30
 
 print("[press ctrl+c to end the script]")
