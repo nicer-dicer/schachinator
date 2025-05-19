@@ -42,7 +42,7 @@ def lese_pgn_datei_als_string(dateipfad):
 
 
 if __name__ == "__main__":
-    pgn_datei = 'testspiel.pgn'
+    pgn_datei = 'testspiel2.pgn'
     partien_inhalte = lese_pgn_datei_als_string(pgn_datei)
 
     for inhalt in partien_inhalte:
