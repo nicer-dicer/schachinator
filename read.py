@@ -1,3 +1,4 @@
+
 import chess
 
 # Liste der Züge im UCI-Format
