@@ -1,6 +1,6 @@
 import multiprocessing as mp
 import worker
-import read
+import read2 as read
 
 def main():
     task_queue = mp.Queue()

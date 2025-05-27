@@ -1,4 +1,4 @@
-import chess
+import chess # type: ignore
 import pgnread2  # Importiere das pgn_parser Modul
 
 def square_to_coords(square):
