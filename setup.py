@@ -31,8 +31,8 @@ feldgrösse = 180
 rand = 30
 
 #gpio pins des magneten
-magnetplus = 10
-magnetminus = 9
+magnetplus = 19
+magnetminus = 26
 GPIO.setup(magnetplus, GPIO.OUT)
 GPIO.setup(magnetminus, GPIO.OUT)
 
