@@ -34,7 +34,7 @@ rand = 30
 magnetplus = 10
 magnetminus = 9
 GPIO.setup(magnetplus, GPIO.OUT)
-GPIO.setup(magnetplus, GPIO.OUT)
+GPIO.setup(magnetminus, GPIO.OUT)
 
 print("[press ctrl+c to end the script]")
 
