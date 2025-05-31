@@ -51,8 +51,8 @@ def read_loop(zuege, task_queue):
                 captured_coords = square_to_coords(capture_square)
 
                 # 1️⃣ Geschlagene Figur zum Friedhof
-                task_queue.put(captured_coords, False,  captured_color)
-                task_queue.put(graveyard_coords, True, captured_color)
+                task_queue.put(captured_coords + [False,  captured_color])
+                task_queue.put(graveyard_coords + [True, captured_color])
 
                 print(f"captured from: {captured_coords + [False, f'captured_{captured_piece.symbol()}', captured_color]}")
                 print(f"captured to  : {graveyard_coords + [True, f'captured_{captured_piece.symbol()}', captured_color]}")
@@ -65,8 +65,8 @@ def read_loop(zuege, task_queue):
             move_type = f"promotion_to_{chess.piece_name(move.promotion)}"
 
         # 2️⃣ Bewegende Figur mit Farbe
-        task_queue.put(from_coords, False, mover_color)
-        task_queue.put(to_coords, True, mover_color)
+        task_queue.put(from_coords + [False, mover_color])
+        task_queue.put(to_coords + [True, mover_color])
 
         print(f"from: {from_coords + [False, move_type, mover_color]}")
         print(f"to  : {to_coords + [True, move_type, mover_color]}")
