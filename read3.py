@@ -75,8 +75,7 @@ def read_loop(task_queue):
 
     task_queue.put(None)
     
-
-if __name__ == "__main__":
+def start_read(task_queue):
     pgn_datei = 'testspiel.pgn'  # Gib hier den Pfad zu deiner PGN-Datei an
     partien_inhalte = pgnread2.lese_pgn_datei_als_string(pgn_datei)  # Verwende pgn_parser
 
@@ -86,3 +85,7 @@ if __name__ == "__main__":
             read_loop(zuege)  # Rufe read_loop mit den extrahierten Zügen auf
         else:
             print("Keine Züge für diese Partie gefunden.")
+    
+if __name__ == "__main__":
+    task_queue = []
+    start_read(task_queue)

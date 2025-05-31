@@ -7,7 +7,7 @@ def main():
 
     worker_process = mp.Process(target=worker.worker_task, args=(task_queue,))
 
-    read_process = mp.Process(target=read.read_loop, args=(task_queue,))
+    read_process = mp.Process(target=read.start_read, args=(task_queue,))
 
 
 
