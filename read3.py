@@ -65,8 +65,8 @@ def read_loop(zuege, task_queue):
             move_type = f"promotion_to_{chess.piece_name(move.promotion)}"
 
         # 2️⃣ Bewegende Figur mit Farbe
-        task_queue.put(from_coords + [False, mover_color])
-        task_queue.put(to_coords + [True, mover_color])
+        task_queue.put(from_coords + [False,  "W"])
+        task_queue.put(to_coords + [True,  "W"])
 
         print(f"from: {from_coords + [False, move_type, mover_color]}")
         print(f"to  : {to_coords + [True, move_type, mover_color]}")
