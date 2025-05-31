@@ -10,7 +10,7 @@ def square_to_coords(square):
     return [file, rank]
 
 
-def read_loop(task_queue):
+def read_loop(zuege, task_queue):
     board = chess.Board()
     white_graveyard_rank = 1
     black_graveyard_rank = 1
@@ -82,7 +82,7 @@ def start_read(task_queue):
     for inhalt in partien_inhalte:
         zuege = pgnread2.extrahiere_partie_zuege(inhalt)  # Verwende pgn_parser
         if zuege:
-            read_loop(zuege)  # Rufe read_loop mit den extrahierten Zügen auf
+            read_loop(zuege, task_queue)  # Rufe read_loop mit den extrahierten Zügen auf
         else:
             print("Keine Züge für diese Partie gefunden.")
     
