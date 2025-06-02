@@ -30,12 +30,18 @@ uS = 0.000001 # one microsecond
 feldgrösse = 180
 rand = 30
 
+#gpio pins des magneten
+magnetplus = 19
+magnetminus = 26
+GPIO.setup(magnetplus, GPIO.OUT)
+GPIO.setup(magnetminus, GPIO.OUT)
+
 print("[press ctrl+c to end the script]")
 
 
 def home():
     
-    HOME = [30,30] #Hier wird die home position in steps von den endschalten definiert
+    HOME = [rand, rand] #Hier wird die home position in steps von den endschalten definiert
     
     #Home X Achse
     try: # Main program loop

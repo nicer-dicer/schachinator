@@ -1,4 +1,4 @@
-import chess.pgn
+import chess.pgn # type: ignore
 import io  # Für die Verwendung von StringIO
 
 def extrahiere_partie_zuege(pgn_inhalt):

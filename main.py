@@ -1,13 +1,13 @@
 import multiprocessing as mp
 import worker
-import read
+import read3 as read
 
 def main():
     task_queue = mp.Queue()
 
     worker_process = mp.Process(target=worker.worker_task, args=(task_queue,))
 
-    read_process = mp.Process(target=read.read_loop, args=(task_queue,))
+    read_process = mp.Process(target=read.start_read, args=(task_queue,))
 
 
 
