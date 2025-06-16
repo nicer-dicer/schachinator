@@ -24,11 +24,12 @@ GPIO.setup(ENY, GPIO.OUT)
 GPIO.setup(ENDY, GPIO.IN)
 STOPY = GPIO.input(ENDY) # get stopy value
 
-usDelay = 950 # number of microseconds
+usDelay = 3000 # number of microseconds
 uS = 0.000001 # one microsecond
 
 feldgrösse = 180
-rand = 30
+randy = 45
+randx = 115
 
 #gpio pins des magneten
 magnetplus = 19
@@ -41,7 +42,7 @@ print("[press ctrl+c to end the script]")
 
 def home():
     
-    HOME = [rand, rand] #Hier wird die home position in steps von den endschalten definiert
+    HOME = [randx, randy] #Hier wird die home position in steps von den endschalten definiert
     
     #Home X Achse
     try: # Main program loop
