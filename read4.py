@@ -1,12 +1,8 @@
 import chess
 
-def start_read(task_queue):
+def start_read(task_queue, coordinates):
     while True:
-        x = input("X")
-        x = int(x)
-        y = input("Y")
-        y = int(y)
-        coords = [x, y]
+        coords = coordinates()
         task_queue.put(coords + [False, 'W'])
 
 if __name__ == "__main__":
